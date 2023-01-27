@@ -6,27 +6,30 @@ def three_sum(nums: List[int]) -> List[List[int]]:
     find distinct triplets within nums that sums to 0
     """
    
-    pairs = []
     triplets = []
+    nums.sort()
+
+    # i, num - loop through nums:
+        # skip repeated values to avoid duplicates
+        # two_sum(i, nums, triplets)
 
 
-    for i1, val1 in enumerate(nums):
-        for i2 in range(i1+1, len(nums)):
-            if i1 != i2:
-                p = sorted([(val1, i1), (nums[i2], i2)], key=lambda t: t[0])
-                pairs.append(p)
+def two_sum(i: int, nums: List[int], triplets: List[int]):
+    d = {}
 
-    for i1, num in enumerate(nums):
-        for i2, pair in enumerate(pairs):
-                if i1 != pair[0][1] and i1 != pair[1][1]: 
-                    trip = sorted([num, pair[0][0], pair[1][0]])
-                    if sum(trip) == 0:
-                        if trip not in triplets:
-                            triplets.append(trip)
+    j = i + 1
+    for j, num in enumerate(nums):
+        target = -nums[i] - nums[j]
+        if n2 in d:
+            return [d[n2], i]
+        else:
+            d[num] = i
     
-    return triplets
+
+nums = [1,2,3,4,-4,0,-2]
+
+nums = [-4,-2,0,1,2,3,4]
 
 
-nums = [0,0,0]
 
 print(three_sum(nums))

@@ -1,5 +1,7 @@
+import math
 from collections import deque
-from typing import Optional
+from typing import List, Optional
+
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -9,39 +11,27 @@ class TreeNode:
         self.right = right
 
 
-def isValidBST(root: Optional[TreeNode]) -> bool:
-    visit_que = deque()
+def is_validBST(root: Optional[TreeNode]) -> bool:
 
-    if not root:
-        return False
+    def validate(node: TreeNode, low=-math.inf, high=math.inf):
+        if not node:
+            return True
 
-    visit_que.appendleft(root)
+        if node.val <= low or node.val >= high:
+            return False
+        
+        return (validate(node.left, low=low, high=node.val) and
+            validate(node.right, low=node.val, high=high))
 
-    while visit_que:
-        cur_node = visit_que.pop()
-        if cur_node.left: 
-            if cur_node.left.val >= cur_node.val:
-                return False
-            else:
-                visit_que.appendleft(cur_node.left)
-
-        if cur_node.right: 
-            if cur_node.right.val <= cur_node.val:
-                return False
-            else:    
-                visit_que.appendleft(cur_node.right)
-
-    return True
-
-"""
-init visit_que and append root
-    visit_que = root: val=0, left=None, right=None
-
-enter while loop:
-    cur_node: val=0, left=None, right=None
-    visit_que = []
+    return validate(root)
 
 
-"""
 
-print(None > 0)
+two = TreeNode(2, None, None)
+six = TreeNode(6, None, None)
+five = TreeNode(5, two, six)
+nine = TreeNode(9, None, None)
+fifteen = TreeNode(15, nine, None)
+root = TreeNode(10, five, fifteen)
+
+print(is_validBST(root))

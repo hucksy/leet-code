@@ -19,7 +19,11 @@ def two_sum_fast(nums: List[int], target: int) -> List[int]:
             d[num] = i
 
 
+
 nums = [2, 6, 11, 15, 7, 9]
+target = 8
+
+
 print(two_sum(nums, 9))
 print(two_sum_fast(nums, 9))
          

@@ -1,20 +1,24 @@
 
 def decode_string(s: str) -> str:
     """
-    Input: s = 3[a2[c]]e -> 3[acc]e ->  accaccacc
+    Input: "3[a2[c]]e"
     Output: "accaccacce"
-
-    decode(cur_string):
-        if len(cur_string) == 1:
-            return cur_string
-        if number:
-            repeat = number
-            move past [
-            move and add letters until "]" to build phrase
-            cur_s += (repeat * decode(phrase) + decode(remaining)
-        if letter:
-            return letter + decode(remaining)
+    
+    if letter != ]:
+        push to stack
+    if letter == ]:
+        cur_l = stack.pop
+        cur_s += cur_l
+        while cur_l != [:
+            cur_s += stack.pop
+            cur_l = stack.pop
+        repeat = stack.pop
+        cur_s = repeat * stack.pop
+        for l in cur_s
+            stack.push(s)
+    while 
     """
+
     breakpoint()
     if len(s) == 1:
         return s

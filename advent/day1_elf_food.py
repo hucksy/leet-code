@@ -1,4 +1,4 @@
-elf_filename = "advent/elf_food.txt"
+elf_filename = "advent/inputs/elf_food.txt"
 
 # with open(elf_filename) as elf_file:
 #     lines = [line.rstrip('\n') for line in elf_file]
